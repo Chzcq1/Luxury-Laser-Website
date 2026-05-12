@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLine, FaFacebook } from "react-icons/fa";
 import { PhoneCall, ShieldCheck, Sparkles, Droplets, Menu, X, Star, Clock, MapPin, ChevronRight } from "lucide-react";
-import bannerImg from "@assets/รวยล้านล้านเลเซอร์_(1640_x_800_px)_1778614840161.png";
+import bannerImg from "@assets/รวยล้านล้านเลเซอร์(1640x800px).png"; 
 
 // ============================================================
 //  แก้ไขข้อมูลร้านได้ที่นี่ที่เดียว
