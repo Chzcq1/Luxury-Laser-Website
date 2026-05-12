@@ -17,7 +17,7 @@ const SHOP_CONFIG = {
   // แก้ LINE ID ของคุณที่นี่ (ไม่ต้องใส่ @)
   lineId: "ruaylanlanlazer",
   // แก้ Facebook URL ของคุณที่นี่
-  facebookUrl: "https://www.facebook.com/ruaylanlanlazer",
+  facebookUrl: "https://www.facebook.com/profile.php?id=61585500669796",
   address: "สอบถามที่ตั้งร้านได้ทาง LINE ครับ",
   hours: "เปิดทุกวัน 09:00 – 18:00 น.",
 };
@@ -242,15 +242,19 @@ export default function Home() {
               className="max-w-2xl"
             >
               <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                <a
+                <motion.a
                   href="#contact"
                   onClick={(e) => scrollTo(e, "#contact")}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-yellow-400 text-gray-900 font-bold rounded-full hover:bg-yellow-300 transition-all shadow-lg text-base"
+                  animate={{ scale: [1, 1.04, 1] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative inline-flex items-center justify-center gap-2 px-7 py-3 bg-yellow-400 text-gray-900 font-bold rounded-full shadow-lg text-base"
                   data-testid="button-hero-contact"
                 >
                   <FaLine className="w-5 h-5" />
                   ติดต่อสั่งทำเลย
-                </a>
+                  {/* จุดแดงแจ้งเตือน */}
+                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red-500 rounded-full border-2 border-yellow-400 animate-bounce" />
+                </motion.a>
                 <a
                   href={`tel:${SHOP_CONFIG.phoneRaw}`}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-white/15 text-white font-bold rounded-full hover:bg-white/25 transition-all border border-white/40 backdrop-blur-sm text-base"
@@ -483,14 +487,25 @@ export default function Home() {
               href={`https://line.me/ti/p/~${SHOP_CONFIG.lineId}`}
               target="_blank"
               rel="noreferrer"
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white border-2 border-[#00B900]/20 hover:border-[#00B900] hover:shadow-lg transition-all group"
+              className="relative flex flex-col items-center gap-3 p-6 rounded-2xl bg-white border-2 border-[#00B900] shadow-lg shadow-[#00B900]/15 hover:shadow-xl hover:shadow-[#00B900]/25 transition-all group"
               data-testid="button-contact-line"
             >
-              <div className="w-14 h-14 bg-[#00B900] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+              {/* แถบ "แนะนำ" มุมบน */}
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[11px] font-bold px-3 py-0.5 rounded-full whitespace-nowrap shadow">
+                แนะนำ! ตอบเร็วที่สุด
+              </span>
+              <div className="relative w-14 h-14 bg-[#00B900] rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform mt-1">
                 <FaLine className="w-8 h-8 text-white" />
+                {/* จุดออนไลน์ */}
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white">
+                  <span className="absolute inset-0 rounded-full bg-red-500 animate-ping opacity-75" />
+                </span>
               </div>
-              <div>
-                <div className="text-xs text-muted-foreground mb-1">LINE</div>
+              <div className="text-center">
+                <div className="text-[11px] text-[#00B900] font-medium mb-0.5 flex items-center justify-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B900] animate-pulse" />
+                  ออนไลน์อยู่
+                </div>
                 <div className="font-bold text-[#00B900] text-lg">@{SHOP_CONFIG.lineId}</div>
               </div>
             </a>
@@ -508,7 +523,7 @@ export default function Home() {
               </div>
               <div>
                 <div className="text-xs text-muted-foreground mb-1">Facebook</div>
-                <div className="font-bold text-[#1877F2] text-lg">รวยล้านล้านเลเซอร์</div>
+                <div className="font-bold text-[#1877F2] text-lg">รวยล้านๆเลเซอร์</div>
               </div>
             </a>
           </motion.div>
