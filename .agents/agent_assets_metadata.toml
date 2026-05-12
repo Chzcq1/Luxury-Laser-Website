@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "5cGsTQanocwiYfBsuTInu"
+uri = "file://artifacts/laser-frame-shop/dist-offline/เว็บออฟไลน์-รวยล้านล้านเลเซอร์.tar.gz"
+type = "unspecified"
+title = "เว็บออฟไลน์ รวยล้านล้านเลเซอร์"
