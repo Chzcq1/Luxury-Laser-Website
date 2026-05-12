@@ -2,7 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLine, FaFacebook } from "react-icons/fa";
 import { PhoneCall, ShieldCheck, Sparkles, Droplets, Menu, X, Star, Clock, MapPin, ChevronRight } from "lucide-react";
-import bannerImg from "@assets/รวยล้านล้านเลเซอร์(1640x800px).png"; 
+import bannerImg from "../assets/banner.png";
+import gallery1Img from "../assets/gallery1.png";
+import gallery2Img from "../assets/gallery2.png";
 
 // ============================================================
 //  แก้ไขข้อมูลร้านได้ที่นี่ที่เดียว
@@ -95,8 +97,8 @@ const STEPS = [
 //  3. แต่ละ item มี caption สำหรับคำบรรยายรูป
 // ============================================================
 const GALLERY_ITEMS: { src: string | null; caption: string }[] = [
-  { src: null, caption: "กรอบทองลายไทย" },
-  { src: null, caption: "กรอบเงินลวดลายพิเศษ" },
+  { src: gallery1Img, caption: "ผลงานช่างพนม" },
+  { src: gallery2Img, caption: "ผลงานช่างพนม" },
   { src: null, caption: "กรอบสแตนเลสเลเซอร์" },
   { src: null, caption: "กรอบทองคำขาว" },
   { src: null, caption: "กรอบพระหลวงพ่อโสธร" },
