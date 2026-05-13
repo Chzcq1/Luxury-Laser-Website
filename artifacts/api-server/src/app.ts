@@ -1,6 +1,6 @@
 import express, { type Express, Request, Response } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
+import { pinoHttp } from "pino-http"; // แก้จาก pinoHttp เป็น { pinoHttp }
 import router from "./routes";
 import { logger } from "./lib/logger";
 
@@ -12,7 +12,7 @@ app.use(
     serializers: {
       req(req: Request) {
         return {
-          id: (req as any).id, // ป้องกันเรื่อง id ที่บางทีไม่อยู่ใน Type พื้นฐาน
+          id: (req as any).id,
           method: req.method,
           url: req.url?.split("?")[0],
         };
