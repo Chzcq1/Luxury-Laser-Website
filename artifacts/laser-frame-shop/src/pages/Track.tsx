@@ -40,7 +40,7 @@ const STEPS = [
   {
     id: 4,
     label: "เสร็จสมบูรณ์",
-    desc: "งานเสร็จแล้ว พร้อมส่งมอบ",
+    desc: "งานเสร็จแล้ว พร้อมส่งมอบกรุณารอรับข้อความจากทางร้าน",
     icon: CheckCircle2,
   },
 ];
@@ -134,7 +134,7 @@ export default function Track() {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="เช่น 063-465-0129"
+                  placeholder="เช่น 0634650129"
                   inputMode="tel"
                   className="w-full pl-9 pr-4 py-3 rounded-xl border border-gray-200 text-sm
                              focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary

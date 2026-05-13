@@ -26,11 +26,12 @@
 // ============================================================
 
 export const SHEETS_CONFIG = {
-  SHEET_ID: "YOUR_GOOGLE_SHEET_ID_HERE",
-  API_KEY: "YOUR_GOOGLE_API_KEY_HERE",
-  CURRENT_JOBS_SHEET: "Current Jobs",
-  HISTORY_SHEET: "History",
+  SHEET_ID: "1-phV30LysaZG84R5lRa209I4gUvTT3dejCNogLqoKqo", // ไอดีชีทเดิม
+  API_KEY: import.meta.env.VITE_API_KEY, // เปลี่ยนมาใช้ตัวแปรระบบแทนการพิมพ์รหัสจริง
+  CURRENT_JOBS_SHEET: "current",
+  HISTORY_SHEET: "history",
 };
+
 
 // ── Types ───────────────────────────────────────────────────
 

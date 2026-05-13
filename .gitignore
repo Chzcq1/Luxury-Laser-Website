@@ -26,6 +26,8 @@ node_modules
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.env
+.env.local
 
 # misc
 /.sass-cache
