@@ -28,7 +28,7 @@ const SHOP_CONFIG = {
   phoneRaw2: "0823806457",
   phone2Name: "คุณขวัญเรือน",
   // แก้ LINE ID ของคุณที่นี่ (ไม่ต้องใส่ @)
-  lineId: "ruaylanlanlazer",
+  lineId: "@285rnzxn",
   // แก้ Facebook URL ของคุณที่นี่
   facebookUrl: "https://www.facebook.com/profile.php?id=61585500669796",
   address: "สอบถามที่ตั้งร้านได้ทาง LINE ครับ",
@@ -549,7 +549,7 @@ export default function Home() {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#00B900] animate-pulse" />
                   ออนไลน์อยู่
                 </div>
-                <div className="font-bold text-[#00B900] text-lg">@{SHOP_CONFIG.lineId}</div>
+                <div className="font-bold text-[#00B900] text-lg">{SHOP_CONFIG.lineId}</div>
               </div>
             </a>
 
