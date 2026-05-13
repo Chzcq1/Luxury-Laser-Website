@@ -27,7 +27,7 @@ const SHOP_CONFIG = {
   phone2: "082-380-6457",
   phoneRaw2: "0823806457",
   phone2Name: "คุณขวัญเรือน",
-  // แก้ LINE ID ของคุณที่นี่ (ไม่ต้องใส่ @)
+  // แก้ LINE ID ของคุณที่นี่ (ใส่@)
   lineId: "@285rnzxn",
   // แก้ Facebook URL ของคุณที่นี่
   facebookUrl: "https://www.facebook.com/profile.php?id=61585500669796",
