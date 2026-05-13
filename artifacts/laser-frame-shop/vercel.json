@@ -1,0 +1,9 @@
+{
+  "_comment": "ไฟล์นี้ใช้เมื่อ deploy จาก root ของ repo เท่านั้น ดู vercel.json ที่ root แทน",
+  "buildCommand": "cd ../.. && pnpm --filter @workspace/laser-frame-shop run build:vercel",
+  "outputDirectory": "dist-vercel",
+  "installCommand": "cd ../.. && pnpm install",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

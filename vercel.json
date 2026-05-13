@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm --filter @workspace/laser-frame-shop run build:vercel",
+  "outputDirectory": "artifacts/laser-frame-shop/dist-vercel",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
