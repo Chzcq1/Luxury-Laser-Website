@@ -31,7 +31,9 @@ const SHOP_CONFIG = {
   lineId: "@285rnzxn",
   // แก้ Facebook URL ของคุณที่นี่
   facebookUrl: "https://www.facebook.com/profile.php?id=61585500669796",
-  address: "สอบถามที่ตั้งร้านได้ทาง LINE ครับ",
+  // แก้ Google Maps URL ของร้านที่นี่
+  mapsUrl: "https://maps.google.com/?q=รวยล้านล้านเลเซอร์",
+  address: "ดูแผนที่ร้านบน Google Maps",
   hours: "เปิดทุกวัน 09:00 – 18:00 น.",
 };
 
@@ -44,6 +46,7 @@ const NAV_LINKS = [
   { name: "ผลงาน",    href: "#gallery" },
   { name: "วิธีสั่งทำ", href: "#how-to-order" },
   { name: "ติดต่อเรา",  href: "#contact" },
+  { name: "ติดตามงาน", href: "/track", isPage: true },
 ];
 
 // ============================================================
@@ -167,16 +170,26 @@ export default function Home() {
 
             {/* เมนู Desktop */}
             <div className="hidden md:flex items-center gap-1">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => scrollTo(e, link.href)}
-                  className="px-4 py-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/5 transition-all font-medium text-sm"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.isPage ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="px-4 py-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/5 transition-all font-medium text-sm"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => scrollTo(e, link.href)}
+                    className="px-4 py-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/5 transition-all font-medium text-sm"
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <a
                 href={`tel:${SHOP_CONFIG.phoneRaw}`}
                 className="ml-4 px-5 py-2 bg-primary text-white rounded-full font-bold text-sm hover:bg-primary/90 transition-all flex items-center gap-2 shadow-sm"
@@ -208,17 +221,29 @@ export default function Home() {
               className="md:hidden bg-white border-b border-primary/10"
             >
               <div className="px-4 py-3 space-y-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => scrollTo(e, link.href)}
-                    className="flex items-center justify-between px-4 py-3 rounded-xl text-foreground hover:text-primary hover:bg-primary/5 font-medium transition-all"
-                  >
-                    {link.name}
-                    <ChevronRight className="w-4 h-4 opacity-40" />
-                  </a>
-                ))}
+                {NAV_LINKS.map((link) =>
+                  link.isPage ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center justify-between px-4 py-3 rounded-xl text-foreground hover:text-primary hover:bg-primary/5 font-medium transition-all"
+                    >
+                      {link.name}
+                      <ChevronRight className="w-4 h-4 opacity-40" />
+                    </a>
+                  ) : (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => scrollTo(e, link.href)}
+                      className="flex items-center justify-between px-4 py-3 rounded-xl text-foreground hover:text-primary hover:bg-primary/5 font-medium transition-all"
+                    >
+                      {link.name}
+                      <ChevronRight className="w-4 h-4 opacity-40" />
+                    </a>
+                  )
+                )}
                 <a
                   href={`tel:${SHOP_CONFIG.phoneRaw}`}
                   className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white rounded-xl font-bold mt-2"
@@ -577,10 +602,15 @@ export default function Home() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground"
           >
-            <span className="flex items-center gap-2">
+            <a
+              href={SHOP_CONFIG.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 hover:text-primary transition-colors underline-offset-2 hover:underline"
+            >
               <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
               {SHOP_CONFIG.address}
-            </span>
+            </a>
             <span className="hidden sm:block w-px h-4 bg-border" />
             <span className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-primary flex-shrink-0" />
