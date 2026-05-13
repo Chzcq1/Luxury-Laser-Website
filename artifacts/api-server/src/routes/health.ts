@@ -1,12 +1,9 @@
-import { Router, type IRouter, Request, Response } from "express"; // เพิ่ม Request, Response
-import { HealthCheckResponse } from "@workspace/api-zod";
+import { Router, Request, Response } from "express";
 
-const router: IRouter = Router();
+const router = Router();
 
-// ระบุ Type ให้ชัดเจนที่ res และใช้ Request กับ _req
-router.get("/healthz", (_req: Request, res: Response) => {
-  const data = HealthCheckResponse.parse({ status: "ok" });
-  res.json(data);
+router.get("/healthz", (req: Request, res: Response) => {
+  res.json({ status: "ok" });
 });
 
 export default router;
