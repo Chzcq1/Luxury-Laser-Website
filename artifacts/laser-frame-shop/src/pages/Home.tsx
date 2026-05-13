@@ -32,8 +32,8 @@ const SHOP_CONFIG = {
   // แก้ Facebook URL ของคุณที่นี่
   facebookUrl: "https://www.facebook.com/profile.php?id=61585500669796",
   // แก้ Google Maps URL ของร้านที่นี่
-  mapsUrl: "https://maps.google.com/?q=รวยล้านล้านเลเซอร์",
-  address: "ดูแผนที่ร้านบน Google Maps",
+  mapsUrl: "https://maps.app.goo.gl/1mXLsus1PyTgxk1B7?g_st=ic",
+  address: "แตะเพื่อดูแผนที่ร้านบน Google Maps",
   hours: "เปิดทุกวัน 09:00 – 18:00 น.",
 };
 
