@@ -129,9 +129,27 @@ export default function Home() {
 
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+
+    // 1. สั่งปิดลิ้นชักเมนูก่อน
     setIsMenuOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+
+    // 2. หน่วงเวลาเพื่อให้ลิ้นชักปิดสนิทก่อนค่อยเริ่มเลื่อน (ป้องกันตำแหน่งเพี้ยน)
+    setTimeout(() => {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        // เผื่อระยะความสูงของ Header (ประมาณ 80-85px)
+        const headerOffset = 85; 
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 350); // รอให้ Animation การปิดเมนูทำงานเสร็จ
   };
+
 
   const fadeUp = {
     initial: { opacity: 0, y: 24 },
@@ -169,7 +187,7 @@ export default function Home() {
             </a>
 
             {/* เมนู Desktop */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1">
               {NAV_LINKS.map((link) =>
                 link.isPage ? (
                   <a
@@ -203,7 +221,7 @@ export default function Home() {
             {/* ปุ่มเมนู Mobile */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/5 transition-all"
+              className="lg:hidden p-2 rounded-lg text-foreground hover:text-primary hover:bg-primary/5 transition-all"
               data-testid="button-mobile-menu"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -218,7 +236,7 @@ export default function Home() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-b border-primary/10"
+              className="lg:hidden bg-white border-b border-primary/10"
             >
               <div className="px-4 py-3 space-y-1">
                 {NAV_LINKS.map((link) =>
