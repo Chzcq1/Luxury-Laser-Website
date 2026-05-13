@@ -3,8 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaLine, FaFacebook } from "react-icons/fa";
 import { PhoneCall, ShieldCheck, Sparkles, Droplets, Menu, X, Star, Clock, MapPin, ChevronRight } from "lucide-react";
 import bannerImg from "../assets/banner.png";
-import gallery1Img from "../assets/gallery1.png";
-import gallery2Img from "../assets/gallery2.png";
+import gallery1Img from "../assets/IMG1_2869.jpeg";
+import gallery2Img from "../assets/IMG2_2870.jpeg";
+import gallery3Img from "../assets/IMG3_2871.jpeg";
+import gallery4Img from "../assets/IMG4_2872.jpeg";
+import gallery5Img from "../assets/IMG5_2873.jpeg";
+import gallery6Img from "../assets/IMG6_2874.jpeg";
+import gallery7Img from "../assets/IMG7_2875.jpeg";
+import gallery8Img from "../assets/IMG8_2876.jpeg";
+
 
 // ============================================================
 //  แก้ไขข้อมูลร้านได้ที่นี่ที่เดียว
@@ -16,6 +23,10 @@ const SHOP_CONFIG = {
   craftsman: "By ช่างพนม",
   phone: "063-465-0129",
   phoneRaw: "0634650129",
+  phoneName: "ช่างพนม",
+  phone2: "082-380-6457",
+  phoneRaw2: "0823806457",
+  phone2Name: "คุณขวัญเรือน",
   // แก้ LINE ID ของคุณที่นี่ (ไม่ต้องใส่ @)
   lineId: "ruaylanlanlazer",
   // แก้ Facebook URL ของคุณที่นี่
@@ -99,12 +110,12 @@ const STEPS = [
 const GALLERY_ITEMS: { src: string | null; caption: string }[] = [
   { src: gallery1Img, caption: "ผลงานช่างพนม" },
   { src: gallery2Img, caption: "ผลงานช่างพนม" },
-  { src: null, caption: "กรอบสแตนเลสเลเซอร์" },
-  { src: null, caption: "กรอบทองคำขาว" },
-  { src: null, caption: "กรอบพระหลวงพ่อโสธร" },
-  { src: null, caption: "กรอบพระสมเด็จ" },
-  { src: null, caption: "กรอบพระนาคปรก" },
-  { src: null, caption: "กรอบพระพิมพ์ขนาดใหญ่" },
+  { src: gallery3Img, caption: "กรอบสแตนเลสเลเซอร์" },
+  { src: gallery4Img, caption: "กรอบทองคำขาว" },
+  { src: gallery5Img, caption: "กรอบพระหลวงพ่อโสธร" },
+  { src: gallery6Img, caption: "กรอบพระสมเด็จ" },
+  { src: gallery7Img, caption: "กรอบพระนาคปรก" },
+  { src: gallery8Img, caption: "กรอบพระพิมพ์ขนาดใหญ่" },
 ];
 
 // ============================================================
@@ -469,20 +480,50 @@ export default function Home() {
             transition={{ delay: 0.1 }}
             className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
           >
-            {/* ปุ่มโทร */}
-            <a
-              href={`tel:${SHOP_CONFIG.phoneRaw}`}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all group"
-              data-testid="button-contact-phone"
+            {/* การ์ดโทรศัพท์ — รวม 2 เบอร์ในการ์ดเดียว */}
+            <div
+              className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-white border-2 border-primary/20 hover:border-primary hover:shadow-lg transition-all"
+              data-testid="card-contact-phone"
             >
-              <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-md flex-shrink-0">
                 <PhoneCall className="w-7 h-7 text-white" />
               </div>
-              <div>
-                <div className="text-xs text-muted-foreground mb-1">โทรศัพท์</div>
-                <div className="font-bold text-primary text-lg">{SHOP_CONFIG.phone}</div>
+
+              <div className="w-full space-y-3">
+                {/* เบอร์หลัก */}
+                <a
+                  href={`tel:${SHOP_CONFIG.phoneRaw}`}
+                  className="block w-full px-4 py-3 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors text-center"
+                  data-testid="button-contact-phone-main"
+                >
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <span className="text-[10px] font-semibold bg-primary text-white px-2 py-0.5 rounded-full tracking-wide">เบอร์หลัก</span>
+                    <span className="text-[11px] text-muted-foreground">{SHOP_CONFIG.phoneName}</span>
+                  </div>
+                  <div className="font-bold text-primary text-xl tracking-wide">{SHOP_CONFIG.phone}</div>
+                </a>
+
+                {/* เส้นคั่น */}
+                <div className="flex items-center gap-2 px-2">
+                  <div className="flex-1 h-px bg-border" />
+                  <span className="text-[10px] text-muted-foreground">หรือ</span>
+                  <div className="flex-1 h-px bg-border" />
+                </div>
+
+                {/* เบอร์รอง */}
+                <a
+                  href={`tel:${SHOP_CONFIG.phoneRaw2}`}
+                  className="block w-full px-4 py-3 rounded-xl bg-muted/50 hover:bg-muted transition-colors text-center"
+                  data-testid="button-contact-phone-secondary"
+                >
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <span className="text-[10px] font-semibold bg-muted-foreground/60 text-white px-2 py-0.5 rounded-full tracking-wide">เบอร์รอง</span>
+                    <span className="text-[11px] text-muted-foreground">{SHOP_CONFIG.phone2Name}</span>
+                  </div>
+                  <div className="font-semibold text-foreground/80 text-lg tracking-wide">{SHOP_CONFIG.phone2}</div>
+                </a>
               </div>
-            </a>
+            </div>
 
             {/* ปุ่ม LINE */}
             <a
